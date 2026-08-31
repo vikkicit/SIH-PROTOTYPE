@@ -1,0 +1,36 @@
+{
+  "name": "vita-mind",
+  "version": "1.0.0",
+  "description": "vita mind — Neural Health & Personal AI Application",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build-www.js",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:build": "npm run cap:sync && cd android && gradlew.bat assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/keyboard": "^6.0.2",
+    "@capacitor/splash-screen": "^6.0.2",
+    "@capacitor/status-bar": "^6.0.1",
+    "@google/genai": "^2.16.0",
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  },
+  "author": "Vitamind",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

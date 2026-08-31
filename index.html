@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIF Sentinel — Serious Injury & Fatality Precursor Intelligence</title>
+  <meta name="description" content="Enterprise Safety Intelligence Platform to Detect SIF Precursors, Evaluate Critical Control Failures, and Map Escalating Patterns.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Global Header -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-logo-mark">⚡ SENTINEL</div>
+        <div>
+          <div class="brand-title">
+            SIF Sentinel
+            <span class="demo-env-badge"><span class="demo-env-dot"></span> Demo Environment</span>
+          </div>
+          <div class="brand-subtitle">Serious Injury & Fatality Precursor Intelligence</div>
+        </div>
+      </div>
+
+      <div class="header-search">
+        🔍 Search safety records, equipment (e.g. Pump P-204)...
+      </div>
+
+      <div class="header-actions">
+        <button class="demo-btn demo-trigger">▶ Launch Demo Scenario</button>
+        <div class="user-profile">
+          <div class="user-avatar">SA</div>
+          <div>
+            <div style="font-weight:800; color:var(--text-primary);">Safety Analyst</div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">EHS Operations</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Body -->
+    <div class="main-wrapper">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="sidebar-section-label">Workspace</div>
+        <div class="nav-item active" data-view="overview">
+          <div class="nav-left"><span class="nav-icon">📊</span> <span class="nav-text">Overview</span></div>
+        </div>
+        <div class="nav-item" data-view="analyze">
+          <div class="nav-left"><span class="nav-icon">⚡</span> <span class="nav-text">Analyze Report</span></div>
+        </div>
+
+        <div class="sidebar-section-label" style="margin-top:12px;">Intelligence</div>
+        <div class="nav-item" data-view="precursors">
+          <div class="nav-left"><span class="nav-icon">🧬</span> <span class="nav-text">Precursor Intelligence</span></div>
+          <span class="nav-counter">17</span>
+        </div>
+        <div class="nav-item" data-view="risk_matrix">
+          <div class="nav-left"><span class="nav-icon">🎯</span> <span class="nav-text">Risk Intelligence</span></div>
+          <span class="nav-counter">5</span>
+        </div>
+        <div class="nav-item" data-view="temporal">
+          <div class="nav-left"><span class="nav-icon">📈</span> <span class="nav-text">Temporal Patterns</span></div>
+        </div>
+        <div class="nav-item" data-view="graph">
+          <div class="nav-left"><span class="nav-icon">🕸️</span> <span class="nav-text">Knowledge Graph</span></div>
+        </div>
+
+        <div class="sidebar-section-label" style="margin-top:12px;">Management</div>
+        <div class="nav-item" data-view="historical">
+          <div class="nav-left"><span class="nav-icon">📁</span> <span class="nav-text">Safety Records</span></div>
+          <span class="nav-counter">3K</span>
+        </div>
+        <div class="nav-item" data-view="actions">
+          <div class="nav-left"><span class="nav-icon">🛠️</span> <span class="nav-text">Corrective Actions</span></div>
+          <span class="nav-counter">11</span>
+        </div>
+
+        <div class="sidebar-section-label" style="margin-top:12px;">Governance</div>
+        <div class="nav-item" data-view="settings">
+          <div class="nav-left"><span class="nav-icon">🔒</span> <span class="nav-text">Audit & Governance</span></div>
+        </div>
+        <div class="nav-item" data-view="architecture">
+          <div class="nav-left"><span class="nav-icon">⚙️</span> <span class="nav-text">Architecture</span></div>
+        </div>
+      </nav>
+
+      <!-- Content Viewport -->
+      <main class="content-viewport">
+        <!-- VIEW 1: OVERVIEW DASHBOARD -->
+        <section id="view-overview" class="view-page active">
+          <div class="hero-banner">
+            <h1 class="hero-title">SIF Sentinel</h1>
+            <div class="hero-tagline">“Identify the precursor before it becomes the incident.”</div>
+            <p class="hero-subtitle">Convert unstructured field narratives into structured safety intelligence, uncover escalating precursor patterns across dates, and prioritize preventive intervention.</p>
+            <div class="hero-cta">
+              <button class="btn-primary" style="width:auto; padding:12px 28px;" onclick="OIL_APP.switchView('analyze')">Analyze Safety Report</button>
+              <button class="btn-secondary demo-trigger" style="padding:12px 28px;">▶ Launch Demo Scenario</button>
+            </div>
+          </div>
+
+          <!-- SEE -> UNDERSTAND -> CONNECT -> ACT Pillars -->
+          <div class="four-pillars">
+            <div class="pillar-card">
+              <div class="pillar-step">STEP 01</div>
+              <div class="pillar-title">SEE</div>
+              <div class="pillar-desc">Convert unstructured safety narratives into structured safety information.</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-step">STEP 02</div>
+              <div class="pillar-title">UNDERSTAND</div>
+              <div class="pillar-desc">Identify hazards, exposure, critical controls, and SIF precursor potential.</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-step">STEP 03</div>
+              <div class="pillar-title">CONNECT</div>
+              <div class="pillar-desc">Connect reports over time and uncover recurring and escalating patterns.</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-step">STEP 04</div>
+              <div class="pillar-title">ACT</div>
+              <div class="pillar-desc">Prioritize risk and recommend evidence-grounded corrective actions.</div>
+            </div>
+          </div>
+
+          <!-- Dataset Provenance & Sandbox Indicator -->
+          <div class="dataset-indicator-banner">
+            <div class="dataset-indicator-left">
+              <span class="dataset-indicator-badge">🔬 SYNTHETIC DATASET</span>
+              <div class="dataset-indicator-text">
+                <strong>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</strong> (3,000 Synthetic Safety Reports)
+              </div>
+            </div>
+            <div class="dataset-indicator-meta">
+              <span>Provenance: Controlled OIL-Like Synthetic Sandbox</span>
+              <span>•</span>
+              <span style="color:#16a34a; font-weight:700;">✓ Verified (No Real PII / No Confidential Data)</span>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="overview-loading-state" class="overview-state-panel">
+            <div class="spinner-icon"></div>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-primary);">Loading Precursor Intelligence Dataset...</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">Connecting to <code>/api/dataset/stats</code> and processing 3,000 safety records</p>
+          </div>
+
+          <!-- Error State -->
+          <div id="overview-error-state" class="overview-state-panel error-state-box" style="display:none;">
+            <h3 style="font-size:1.1rem; font-weight:800;">Unable to Load Dataset Statistics</h3>
+            <p id="overview-error-message" style="font-size:0.85rem; margin:8px 0 16px 0;">An error occurred while fetching dataset statistics from the backend.</p>
+            <button class="btn-secondary" onclick="OIL_APP.fetchDatasetStats()">↻ Retry Connection</button>
+          </div>
+
+          <!-- Main Dataset Content Container -->
+          <div id="overview-content" style="display:none;">
+            <!-- Real KPI Cards Grid -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-label">Total Safety Reports</div>
+                <div class="kpi-value" id="kpi-total-reports">3,000</div>
+                <div class="kpi-subtext" id="kpi-total-subtext">31 Structured Columns</div>
+              </div>
+              <div class="kpi-card" style="border-top: 3px solid #dc2626;">
+                <div class="kpi-label" style="color:#dc2626;">SIF Precursor (YES)</div>
+                <div class="kpi-value" id="kpi-sif-yes" style="color:#dc2626;">1,000</div>
+                <div class="kpi-subtext" id="kpi-sif-yes-pct">33.33% of Total Records</div>
+              </div>
+              <div class="kpi-card" style="border-top: 3px solid #d97706;">
+                <div class="kpi-label" style="color:#d97706;">Precursor (REVIEW)</div>
+                <div class="kpi-value" id="kpi-sif-review" style="color:#d97706;">1,000</div>
+                <div class="kpi-subtext" id="kpi-sif-review-pct">33.33% of Total Records</div>
+              </div>
+              <div class="kpi-card" style="border-top: 3px solid #16a34a;">
+                <div class="kpi-label" style="color:#16a34a;">Non-SIF / Safe (NO)</div>
+                <div class="kpi-value" id="kpi-sif-no" style="color:#16a34a;">1,000</div>
+                <div class="kpi-subtext" id="kpi-sif-no-pct">33.33% of Total Records</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">High Severity Events</div>
+                <div class="kpi-value" id="kpi-high-severity">1,000</div>
+                <div class="kpi-subtext" id="kpi-high-severity-pct">High Risk Candidates</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Precursor Families</div>
+                <div class="kpi-value" id="kpi-precursor-families">17</div>
+                <div class="kpi-subtext">Scenario Categories</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Operating Locations</div>
+                <div class="kpi-value" id="kpi-locations-count">10</div>
+                <div class="kpi-subtext">Operating Areas</div>
+              </div>
+            </div>
+
+            <!-- Distribution Grid Row 1: SIF Target, Severity, Incident Types -->
+            <div class="dashboard-grid-3">
+              <!-- SIF Target Classification Breakdown -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>SIF Potential Classification</span>
+                  <span class="badge critical" id="sif-target-badge">3-Class Target</span>
+                </div>
+                <div id="sif-distribution-container"></div>
+              </div>
+
+              <!-- Severity Breakdown -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Severity Distribution</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">HIGH / MED / LOW</span>
+                </div>
+                <div id="severity-distribution-container"></div>
+              </div>
+
+              <!-- Incident Types -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Incident Type Distribution</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">OIL-Form Aligned</span>
+                </div>
+                <div id="incident-type-distribution-container"></div>
+              </div>
+            </div>
+
+            <div style="height:20px;"></div>
+
+            <!-- Distribution Grid Row 2: Control Status & Top Barrier Failures -->
+            <div class="dashboard-grid-2">
+              <!-- Control Status Distribution -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Critical Control Verification Status</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Barrier Condition</span>
+                </div>
+                <div id="control-status-container"></div>
+              </div>
+
+              <!-- Barrier Failures Breakdown -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Top Critical Barrier Failures</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Precursor Failure Modes</span>
+                </div>
+                <div id="barrier-failure-container"></div>
+              </div>
+            </div>
+
+            <div style="height:20px;"></div>
+
+            <!-- Distribution Grid Row 3: 17 Precursor Families & Organization Spread -->
+            <div class="dashboard-grid-2">
+              <!-- 17 Precursor Scenario Families -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Precursor Scenario Families (17 Total)</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Scenario Distribution</span>
+                </div>
+                <div id="precursor-families-container" style="max-height:420px; overflow-y:auto; padding-right:6px;"></div>
+              </div>
+
+              <!-- Department & Location Distribution -->
+              <div class="panel-card" style="margin-bottom:0;">
+                <div class="panel-title">
+                  <span>Department & Operating Facility Distribution</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Site Spread</span>
+                </div>
+                <div style="display:flex; gap:12px; margin-bottom:12px;">
+                  <button class="filter-btn active" id="btn-show-depts" onclick="OIL_APP.toggleOrgView('depts')">Departments (10)</button>
+                  <button class="filter-btn" id="btn-show-locs" onclick="OIL_APP.toggleOrgView('locs')">Locations (10)</button>
+                </div>
+                <div id="org-distribution-container" style="max-height:360px; overflow-y:auto; padding-right:6px;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: ANALYZE REPORT -->
+        <section id="view-analyze" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">⚡ Analyze Safety Report</h2>
+            <div class="page-subtitle">Convert unstructured safety narratives into structured precursor intelligence.</div>
+          </div>
+
+          <div class="analyze-grid">
+            <!-- Left Input Form -->
+            <div class="panel-card">
+              <div class="panel-title">Report Input & Demo Scenarios</div>
+              
+              <div class="presets-container">
+                <div class="form-label">Select Demo Scenario:</div>
+                <div class="preset-chip" id="preset-1">
+                  <span>Scenario 01: Pump P-204 Maintenance (Hazardous Energy / LOTO)</span>
+                  <span>Select →</span>
+                </div>
+                <div class="preset-chip" id="preset-2">
+                  <span>Scenario 02: Storage Tank TK-12 (Confined Space)</span>
+                  <span>Select →</span>
+                </div>
+                <div class="preset-chip" id="preset-3">
+                  <span>Scenario 03: Rig 7 Platform (Work at Height)</span>
+                  <span>Select →</span>
+                </div>
+              </div>
+
+              <form id="analyze-form">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                  <div class="form-group">
+                    <label class="form-label">Report Type</label>
+                    <select id="report-type" class="form-control">
+                      <option value="Near Miss">Near Miss</option>
+                      <option value="Unsafe Act">Unsafe Act</option>
+                      <option value="Unsafe Condition">Unsafe Condition</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Facility / Site</label>
+                    <select id="report-location" class="form-control">
+                      <option value="Duliajan Site">Duliajan Site (Pump Station B)</option>
+                      <option value="Digboi Facility">Digboi Facility (Tank Farm)</option>
+                      <option value="Naharkatiya Field">Naharkatiya Field (Rig 7)</option>
+                      <option value="Moran Sector">Moran Sector (Well Pad 4)</option>
+                      <option value="Oilfield Site A">Oilfield Site A</option>
+                      <option value="Refinery Area">Refinery Processing Area</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Activity Being Performed</label>
+                  <input type="text" id="report-activity" class="form-control" value="Pump Unit P-204 Maintenance">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Unstructured Narrative</label>
+                  <textarea id="report-text" class="form-control">During maintenance of Pump P-204, a technician entered the equipment area while the pump was still energized. Lockout/tagout was not applied and isolation was only verbally confirmed by the supervisor. A similar observation had been reported twice during the previous month.</textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">ANALYZE SAFETY REPORT</button>
+              </form>
+            </div>
+
+            <!-- Right Architecture Pipeline -->
+            <div>
+              <div class="panel-card">
+                <div class="panel-title">AI Processing Workflow Pipeline</div>
+                <div style="font-size:0.85rem; color:var(--text-secondary); line-height:1.8;">
+                  <div style="margin-bottom:10px;"><strong>01 Reading & Preprocessing:</strong> Tokenization and text normalization.</div>
+                  <div style="margin-bottom:10px;"><strong>02 Named Entity Recognition:</strong> Extracts equipment, activity, hazard, exposure terms.</div>
+                  <div style="margin-bottom:10px;"><strong>03 Hazard & Exposure Mapping:</strong> Identifies unisolated line-of-fire worker presence.</div>
+                  <div style="margin-bottom:10px;"><strong>04 Critical Control Evaluation:</strong> Evaluates zero-energy LOTO and PTW status.</div>
+                  <div style="margin-bottom:10px;"><strong>05 Historical Similarity Matching:</strong> Cosine vector search across safety records.</div>
+                  <div style="margin-bottom:10px;"><strong>06 Temporal Pattern Aggregation:</strong> Uncovers repeating precursor chains.</div>
+                  <div style="margin-bottom:10px;"><strong>07 SIF Risk Priority Model:</strong> Calculates 6-factor decision support score.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ANALYSIS OUTPUT WORKFLOW SECTION -->
+          <div id="analysis-output" class="analysis-output">
+            <!-- Progress Simulation Bar -->
+            <div id="progress-container" class="progress-container">
+              <div id="progress-step-text" class="progress-step-text">01 Reading report narrative...</div>
+              <div class="progress-bar-outer">
+                <div id="progress-bar-inner" class="progress-bar-inner"></div>
+              </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="results-container" style="display:none;">
+              <!-- 1. Text Highlighting & Entities -->
+              <div class="dashboard-grid">
+                <div class="panel-card">
+                  <div class="panel-title">Evidence from Report (Phrase Highlighting)</div>
+                  <div class="form-label">Highlighted Report Narrative (Click highlighted phrases to inspect):</div>
+                  <div id="highlighted-report-text" class="highlighted-box"></div>
+
+                  <div class="form-label">Extracted Safety Entities:</div>
+                  <div id="extracted-entity-grid" class="entity-grid"></div>
+                </div>
+
+                <!-- 2. SIF Classification & Risk Breakdown -->
+                <div>
+                  <div id="sif-badge-container" class="sif-badge-panel"></div>
+
+                  <div class="panel-card">
+                    <div class="panel-title">SIF Risk Score Breakdown</div>
+                    <div class="risk-score-display">
+                      <div id="risk-score-num" class="risk-num">91</div>
+                      <div class="risk-label">FINAL PRIORITY SCORE (91 / 100)</div>
+                      <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">“Risk Priority is a decision-support score, not a probability of an accident.”</p>
+                    </div>
+                    <div id="risk-score-bars" class="score-bars"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Critical Controls & Historical Matches -->
+              <div class="dashboard-grid">
+                <div class="panel-card">
+                  <div class="panel-title">Critical Control Status</div>
+                  <div id="controls-status-container"></div>
+                </div>
+
+                <div class="panel-card">
+                  <div class="panel-title">Related Historical Reports</div>
+                  <div id="historical-similar-container"></div>
+                </div>
+              </div>
+
+              <!-- 4. Temporal Intelligence & PRECURSOR ESCALATION GRAPH -->
+              <div class="panel-card">
+                <div class="panel-title">
+                  <span>Temporal Risk Intelligence</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Multi-Event Precursor Aggregation over Time</span>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">“Individual reports may appear unrelated. Temporal analysis identifies repeated and escalating precursor patterns.”</p>
+                <div id="temporal-timeline-container"></div>
+              </div>
+
+              <div class="panel-card">
+                <div class="panel-title">
+                  <span>Safety Relationship Knowledge Graph</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">Interactive Relationship Graph (Click any node to inspect side panel)</span>
+                </div>
+                
+                <!-- Graph Toolbar -->
+                <div class="graph-toolbar">
+                  <div class="filter-btn-group">
+                    <button class="filter-btn active" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('all', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">All</button>
+                    <button class="filter-btn" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('reports', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Reports</button>
+                    <button class="filter-btn" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('hazard', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Hazards</button>
+                    <button class="filter-btn" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('control', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Controls</button>
+                    <button class="filter-btn" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('equipment', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Equipment</button>
+                    <button class="filter-btn" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.setFilter('exposure', OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Exposure</button>
+                  </div>
+                  <button class="btn-secondary" style="font-size:0.75rem; padding:4px 10px;" onclick="if(OIL_APP.currentAnalysis?._graphData) OIL_GRAPH.toggleEscalationOnly(OIL_APP.currentAnalysis._graphData, node => OIL_APP.showNodeDrawer(node))">Show Escalation Path Only</button>
+                </div>
+
+                <div id="analysis-graph-container" class="graph-container"></div>
+              </div>
+
+              <!-- 5. Recommended Actions & Explainability -->
+              <div class="dashboard-grid">
+                <div class="panel-card">
+                  <div class="panel-title">Recommended Corrective Actions</div>
+                  <div id="action-recommendations-container"></div>
+                </div>
+
+                <div class="panel-card">
+                  <div class="panel-title">Why Was This Flagged? (Evidence Chain)</div>
+                  <div id="explainability-chain-container"></div>
+                  <div style="margin-top:20px; padding:12px; background:#f8fafc; border:1px solid #0f172a; border-radius:6px; font-size:0.78rem; color:var(--text-secondary);">
+                    <strong>Human-in-the-Loop Analyst Review:</strong><br>
+                    <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                      <button class="btn-secondary" onclick="alert('Precursor finding confirmed.')">Confirm Precursor</button>
+                      <button class="btn-secondary" onclick="alert('Finding rejected.')">Reject Finding</button>
+                      <button class="btn-secondary" onclick="alert('Classification updated.')">Correct Classification</button>
+                      <button class="btn-secondary" onclick="alert('Action assigned.')">Assign Action</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: PRECURSOR INTELLIGENCE -->
+        <section id="view-precursors" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">🧬 Precursor Intelligence</h2>
+            <div class="page-subtitle">Live dataset aggregation across all 17 precursor scenario families — counts, SIF classification breakdown, and barrier failure analysis derived from <code>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</code>.</div>
+          </div>
+
+          <!-- Dataset Provenance Banner -->
+          <div class="dataset-indicator-banner" style="margin-bottom:18px;">
+            <div class="dataset-indicator-left">
+              <span class="dataset-indicator-badge">🧬 PRECURSOR INTELLIGENCE</span>
+              <div class="dataset-indicator-text">
+                <strong>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</strong> — All 3,000 synthetic OIL-like safety reports · 17 precursor scenario families
+              </div>
+            </div>
+            <div class="dataset-indicator-meta">
+              <span>API: <code>/api/precursor/intelligence</code></span>
+              <span>•</span>
+              <span style="color:#16a34a; font-weight:700;">✓ Live Backend API Grounding</span>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="precursor-loading-state" style="display:none; text-align:center; padding:48px 20px;">
+            <div class="spinner-icon" style="width:36px; height:36px; margin:0 auto 14px;"></div>
+            <p style="font-size:0.95rem; font-weight:700; color:var(--text-primary);">Loading Precursor Intelligence...</p>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">Aggregating 3,000 records across 17 precursor families</p>
+          </div>
+
+          <!-- Error State -->
+          <div id="precursor-error-state" style="display:none; background:#fff1f2; border:1px solid #fecdd3; border-radius:8px; padding:20px; margin-bottom:16px;">
+            <div style="font-weight:800; color:#dc2626; margin-bottom:4px;">⚠ Failed to load Precursor Intelligence</div>
+            <div id="precursor-error-message" style="font-size:0.85rem; color:#b91c1c;"></div>
+            <button class="btn-secondary" style="margin-top:12px; font-size:0.8rem;" onclick="OIL_APP.loadPrecursorIntelligence()">↺ Retry</button>
+          </div>
+
+          <!-- Content (hidden until data loads) -->
+          <div id="precursor-content" style="display:none;">
+
+            <!-- KPI Summary Bar -->
+            <div id="precursor-kpi-bar" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:22px;"></div>
+
+            <!-- Section: Precursor Family Cards -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+              <div style="font-size:0.92rem; font-weight:800; color:var(--text-primary);">
+                🧬 Precursor Scenario Families — Click to filter reports below
+              </div>
+              <div style="font-size:0.78rem; color:var(--text-muted); font-weight:600;" id="precursor-active-filter-label"></div>
+            </div>
+            <div id="taxonomy-categories-grid" class="category-grid" style="margin-bottom:24px;"></div>
+
+            <!-- Section: Precursor Report Table -->
+            <div class="panel-card" style="padding:0; overflow:hidden;">
+              <div style="padding:16px 20px; border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                <div>
+                  <div style="font-size:0.92rem; font-weight:800; color:var(--text-primary);" id="precursor-table-title">Precursor Reports — All Families</div>
+                  <div style="font-size:0.78rem; color:var(--text-muted); margin-top:2px;" id="precursor-table-meta"></div>
+                </div>
+                <button class="btn-secondary" style="font-size:0.76rem; padding:5px 12px;" id="precursor-clear-filter-btn" onclick="OIL_APP.clearPrecursorFamilyFilter()" style="display:none;">✕ Clear Filter</button>
+              </div>
+
+              <!-- Loading state for table -->
+              <div id="precursor-table-loading" style="display:none; padding:28px; text-align:center;">
+                <div class="spinner-icon" style="width:24px; height:24px; margin:0 auto 10px;"></div>
+                <p style="font-size:0.82rem; color:var(--text-muted);">Loading records...</p>
+              </div>
+
+              <!-- Empty state for table -->
+              <div id="precursor-table-empty" style="display:none; padding:32px; text-align:center;">
+                <div style="font-size:2rem; margin-bottom:8px;">🔍</div>
+                <p style="font-size:0.9rem; font-weight:700; color:var(--text-primary);">No records found for this filter</p>
+                <button class="btn-secondary" style="margin-top:12px; font-size:0.8rem;" onclick="OIL_APP.clearPrecursorFamilyFilter()">Clear Filter</button>
+              </div>
+
+              <div id="precursor-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="white-space:nowrap;">Report ID</th>
+                      <th style="white-space:nowrap;">Precursor Family</th>
+                      <th style="white-space:nowrap;">Location</th>
+                      <th style="white-space:nowrap;">SIF Flag</th>
+                      <th style="white-space:nowrap;">Barrier Failure</th>
+                      <th style="white-space:nowrap;">Control Status</th>
+                      <th style="white-space:nowrap;">Severity</th>
+                      <th style="white-space:nowrap;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="precursor-table-body"></tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-top:1px solid var(--border-color); flex-wrap:wrap; gap:8px;">
+                <div style="font-size:0.78rem; color:var(--text-muted);" id="precursor-page-info"></div>
+                <div style="display:flex; gap:6px;">
+                  <button class="btn-secondary" style="font-size:0.74rem; padding:4px 10px;" id="prec-first-btn" onclick="OIL_APP.navigatePrecursorPage('first')">«</button>
+                  <button class="btn-secondary" style="font-size:0.74rem; padding:4px 10px;" id="prec-prev-btn" onclick="OIL_APP.navigatePrecursorPage(-1)">‹ Prev</button>
+                  <button class="btn-secondary" style="font-size:0.74rem; padding:4px 10px;" id="prec-next-btn" onclick="OIL_APP.navigatePrecursorPage(1)">Next ›</button>
+                  <button class="btn-secondary" style="font-size:0.74rem; padding:4px 10px;" id="prec-last-btn" onclick="OIL_APP.navigatePrecursorPage('last')">»</button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /precursor-content -->
+        </section>
+
+        <!-- VIEW 4: RISK INTELLIGENCE MATRIX -->
+        <section id="view-risk_matrix" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">🎯 Risk Intelligence Matrix</h2>
+            <div class="page-subtitle">Filterable safety records matrix cross-referenced by site, precursor, and critical control status.</div>
+          </div>
+          <div class="panel-card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Report ID</th>
+                  <th>Precursor Domain</th>
+                  <th>Location</th>
+                  <th>Risk Priority</th>
+                  <th>Trend</th>
+                  <th>Failed Control</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="risk-matrix-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- VIEW 5: TEMPORAL PATTERNS -->
+        <section id="view-temporal" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">📈 Temporal Risk Patterns</h2>
+            <div class="page-subtitle">Identifying recurring and concentrated SIF precursor patterns across time from the 3,000-record dataset.</div>
+          </div>
+
+          <!-- Dataset Provenance & Date Coverage Banner -->
+          <div class="dataset-indicator-banner" style="margin-bottom:18px;">
+            <div class="dataset-indicator-left">
+              <span class="dataset-indicator-badge">📅 REAL DATASET TEMPORAL ENGINE</span>
+              <div class="dataset-indicator-text">
+                <strong>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</strong> (3,000 Reports · 3,000 Valid Incident Dates · Dec 31, 2021 – Jul 28, 2026)
+              </div>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-secondary); text-align:right;">
+              Time Scale: <strong>Monthly Aggregation (56 Active Months)</strong>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="temporal-loading-state" class="panel-card" style="text-align:center; padding:48px 20px; margin-bottom:20px;">
+            <div class="spinner-icon" style="width:36px; height:36px; margin:0 auto 16px;"></div>
+            <h3 style="font-size:1.1rem; color:var(--text-primary); font-weight:800;">Analyzing Temporal Patterns across 3,000 Safety Records...</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">Computing monthly time-series, precursor recurrence, location density, and barrier failure frequency.</p>
+          </div>
+
+          <!-- Error State -->
+          <div id="temporal-error-state" class="panel-card" style="display:none; text-align:center; padding:40px 20px; margin-bottom:20px; border-left:4px solid #dc2626;">
+            <h3 style="font-size:1.1rem; color:#dc2626; font-weight:800;">Failed to Load Temporal Intelligence</h3>
+            <p id="temporal-error-message" style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">An unexpected error occurred.</p>
+            <button class="btn-primary" style="margin-top:16px;" onclick="OIL_APP.loadTemporalIntelligence(true)">Retry Analysis</button>
+          </div>
+
+          <!-- Main Content Container -->
+          <div id="temporal-content" style="display:none;">
+
+            <!-- KPI Summary Bar -->
+            <div id="temporal-kpi-bar" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-bottom:20px;"></div>
+
+            <!-- Interactive Filters Bar -->
+            <div class="panel-card" style="margin-bottom:20px; padding:14px 18px;">
+              <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
+                <div style="font-weight:800; font-size:0.88rem; color:#0f172a; display:flex; align-items:center; gap:6px;">
+                  <span>🔍 Filter Temporal View:</span>
+                  <span id="temporal-filter-status-label" style="font-weight:600; font-size:0.78rem; color:var(--text-muted);">Showing All Records</span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+                  <select id="temporal-filter-precursor" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyTemporalFilters()">
+                    <option value="">All Precursor Families</option>
+                  </select>
+                  <select id="temporal-filter-location" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyTemporalFilters()">
+                    <option value="">All Locations</option>
+                  </select>
+                  <select id="temporal-filter-department" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyTemporalFilters()">
+                    <option value="">All Departments</option>
+                  </select>
+                  <select id="temporal-filter-sif" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyTemporalFilters()">
+                    <option value="">All SIF Classifications</option>
+                    <option value="YES">SIF Precursor (YES)</option>
+                    <option value="REVIEW">Under Review (REVIEW)</option>
+                    <option value="NO">Non-SIF (NO)</option>
+                  </select>
+                  <button id="temporal-clear-filters-btn" class="btn-secondary" style="font-size:0.78rem; padding:6px 12px; display:none;" onclick="OIL_APP.clearTemporalFilters()">Reset Filters</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Time-Series Overview & SIF Trend Section -->
+            <div class="panel-card" style="margin-bottom:24px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-size:1.15rem; color:var(--text-primary); font-weight:800;">📈 Monthly Safety Incident & SIF Precursor Trend</h3>
+                  <div style="font-size:0.82rem; color:var(--text-muted); margin-top:2px;">Time-series distribution across 56 active months (Dec 2021 – Jul 2026).</div>
+                </div>
+                <div style="display:flex; gap:12px; font-size:0.75rem; font-weight:700;">
+                  <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#dc2626; border-radius:2px; display:inline-block;"></span> SIF YES</span>
+                  <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#d97706; border-radius:2px; display:inline-block;"></span> SIF REVIEW</span>
+                  <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#94a3b8; border-radius:2px; display:inline-block;"></span> SIF NO</span>
+                </div>
+              </div>
+
+              <!-- Neutral Trend Summary Alert -->
+              <div id="temporal-trend-summary-box" style="background:#f8fafc; border:1px solid #e2e8f0; border-left:4px solid #2563eb; border-radius:6px; padding:10px 14px; margin-bottom:16px; font-size:0.82rem; color:var(--text-secondary);">
+                <!-- Dynamic text populated by JS -->
+              </div>
+
+              <!-- Visual Monthly Chart Container -->
+              <div id="temporal-chart-container" style="margin-bottom:16px; overflow-x:auto;"></div>
+            </div>
+
+            <!-- Pattern Matrix / Heatmap Section -->
+            <div class="panel-card" style="margin-bottom:24px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-size:1.15rem; color:var(--text-primary); font-weight:800;">🗺️ Temporal Precursor Concentration Matrix</h3>
+                  <div style="font-size:0.82rem; color:var(--text-muted); margin-top:2px;">Heatmap displaying report density by precursor family across monthly time periods.</div>
+                </div>
+                <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">
+                  Color intensity indicates report volume per month
+                </div>
+              </div>
+
+              <div id="temporal-heatmap-container" style="overflow-x:auto;"></div>
+            </div>
+
+            <!-- Top Recurring Precursor Patterns Section -->
+            <div style="margin-bottom:24px;">
+              <div style="margin-bottom:14px;">
+                <h3 style="font-size:1.2rem; color:var(--text-primary); font-weight:900;">🔥 Top Recurring Precursor Patterns</h3>
+                <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:2px;">
+                  Precursor patterns identified across multiple time periods and facility locations based on transparent dataset-derived metrics.
+                </div>
+              </div>
+              <div id="temporal-recurring-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:16px;"></div>
+            </div>
+
+            <!-- Tabbed Detailed Breakdown Section -->
+            <div class="panel-card">
+              <!-- Tabs Navigation -->
+              <div style="display:flex; gap:8px; border-bottom:2px solid var(--border-color); padding-bottom:10px; margin-bottom:16px; overflow-x:auto;">
+                <button class="filter-btn active" data-temporal-tab="precursors" onclick="OIL_APP.switchTemporalTab('precursors')">Precursor Families (17)</button>
+                <button class="filter-btn" data-temporal-tab="locations" onclick="OIL_APP.switchTemporalTab('locations')">Location × Time Analysis</button>
+                <button class="filter-btn" data-temporal-tab="departments" onclick="OIL_APP.switchTemporalTab('departments')">Department × Time Analysis</button>
+                <button class="filter-btn" data-temporal-tab="barriers" onclick="OIL_APP.switchTemporalTab('barriers')">Barrier Failure Recurrence</button>
+              </div>
+
+              <!-- Tab Content Container -->
+              <div id="temporal-tab-content"></div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- VIEW 6: KNOWLEDGE GRAPH — DATA-BACKED (Real 3,000-Record Dataset) -->
+        <section id="view-graph" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">🕸️ Safety Relationship Knowledge Graph</h2>
+            <div class="page-subtitle">Observed associations between precursor families, barriers, LSR themes, locations, departments, and SIF classifications — derived from the real 3,000-record dataset.</div>
+          </div>
+
+          <!-- Dataset Provenance Banner -->
+          <div class="dataset-indicator-banner" style="margin-bottom:18px;">
+            <div class="dataset-indicator-left">
+              <span class="dataset-indicator-badge">🔬 REAL DATASET GRAPH ENGINE</span>
+              <div class="dataset-indicator-text">
+                <strong>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</strong> — Structural relationships computed from 3,000 records. These are <em>observed associations</em>, not asserted causal relationships.
+              </div>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-secondary); text-align:right;">
+              <span id="graph-record-count" style="font-weight:800; color:#0f172a;">3,000</span> records · <span id="graph-node-count" style="font-weight:800; color:#7c3aed;">—</span> nodes · <span id="graph-edge-count" style="font-weight:800; color:#2563eb;">—</span> edges
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="graph-loading-state" class="panel-card" style="text-align:center; padding:48px 20px; margin-bottom:20px;">
+            <div class="spinner-icon" style="width:36px; height:36px; margin:0 auto 16px;"></div>
+            <h3 style="font-size:1.1rem; color:var(--text-primary); font-weight:800;">Building Knowledge Graph from 3,000 Safety Records...</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">Computing precursor → barrier → LSR → location relationships from real dataset fields.</p>
+          </div>
+
+          <!-- Error State -->
+          <div id="graph-error-state" class="panel-card" style="display:none; text-align:center; padding:40px 20px; margin-bottom:20px; border-left:4px solid #dc2626;">
+            <h3 style="font-size:1.1rem; color:#dc2626; font-weight:800;">Failed to Load Knowledge Graph</h3>
+            <p id="graph-error-message" style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">An unexpected error occurred.</p>
+            <button class="btn-primary" style="margin-top:16px;" onclick="OIL_APP.loadGraphIntelligence(true)">Retry</button>
+          </div>
+
+          <!-- Main Content -->
+          <div id="graph-content" style="display:none;">
+
+            <!-- KPI Bar -->
+            <div id="graph-kpi-bar" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:18px;"></div>
+
+            <!-- Controls & Legend Row -->
+            <div style="display:grid; grid-template-columns:1fr auto; gap:16px; margin-bottom:16px; align-items:start;">
+
+              <!-- Filter Controls -->
+              <div class="panel-card" style="padding:14px 18px;">
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
+                  <span style="font-weight:800; font-size:0.88rem; color:#0f172a;">🔍 Filter Graph:</span>
+                  <select id="graph-filter-precursor" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyGraphFilter()">
+                    <option value="">All Precursor Families (17)</option>
+                  </select>
+                  <select id="graph-filter-location" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyGraphFilter()">
+                    <option value="">All Locations (10)</option>
+                  </select>
+                  <select id="graph-filter-sif" class="form-select" style="font-size:0.8rem; padding:6px 10px; width:auto;" onchange="OIL_APP.applyGraphFilter()">
+                    <option value="">All SIF Classes</option>
+                    <option value="YES">SIF YES</option>
+                    <option value="REVIEW">SIF REVIEW</option>
+                    <option value="NO">SIF NO</option>
+                  </select>
+                  <button id="graph-clear-filter-btn" class="btn-secondary" style="font-size:0.78rem; padding:5px 12px; display:none;" onclick="OIL_APP.clearGraphFilters()">Reset Filters</button>
+                </div>
+              </div>
+
+              <!-- Legend -->
+              <div class="panel-card" style="padding:10px 14px; min-width:180px;">
+                <div style="font-size:0.75rem; font-weight:800; color:#0f172a; margin-bottom:8px;">NODE LEGEND</div>
+                <div style="display:flex; flex-direction:column; gap:5px; font-size:0.72rem; font-weight:700;">
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#7c3aed; border-radius:50%; margin-right:5px;"></span>PRECURSOR</span>
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#dc2626; border-radius:50%; margin-right:5px;"></span>BARRIER</span>
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#d97706; border-radius:50%; margin-right:5px;"></span>LSR THEME</span>
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#0369a1; border-radius:50%; margin-right:5px;"></span>LOCATION</span>
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#16a34a; border-radius:50%; margin-right:5px;"></span>DEPARTMENT</span>
+                  <span><span style="display:inline-block; width:10px; height:10px; background:#475569; border-radius:50%; margin-right:5px;"></span>SIF CLASS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graph View Tabs -->
+            <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+              <button class="filter-btn active" data-graph-view="precursor_overview" onclick="OIL_APP.switchGraphView('precursor_overview')">Precursor Overview</button>
+              <button class="filter-btn" data-graph-view="precursor_barrier" onclick="OIL_APP.switchGraphView('precursor_barrier')">Precursor → Barrier → LSR</button>
+              <button class="filter-btn" data-graph-view="precursor_location" onclick="OIL_APP.switchGraphView('precursor_location')">Precursor → Location → Dept</button>
+              <button class="filter-btn" data-graph-view="precursor_sif" onclick="OIL_APP.switchGraphView('precursor_sif')">Precursor → SIF → Severity</button>
+            </div>
+
+            <!-- SVG Graph Canvas + Detail Panel -->
+            <div style="display:grid; grid-template-columns:1fr 340px; gap:16px; align-items:start;">
+
+              <!-- SVG Canvas -->
+              <div class="panel-card" style="padding:0; overflow:hidden;">
+                <div id="kg-graph-container" style="width:100%; height:560px; background:#fafafa; position:relative; overflow:auto;">
+                  <!-- SVG rendered here by JS -->
+                </div>
+                <div style="padding:10px 16px; border-top:1px solid var(--border-color); font-size:0.72rem; color:var(--text-muted); font-weight:700;">
+                  💡 Click any node to see related entities and real dataset records. Edge thickness ∝ report count.
+                </div>
+              </div>
+
+              <!-- Detail Panel -->
+              <div id="graph-detail-panel" class="panel-card" style="padding:16px; min-height:560px;">
+                <div style="font-weight:900; font-size:1rem; color:#0f172a; margin-bottom:12px; padding-bottom:10px; border-bottom:2px solid var(--border-color);">
+                  🔍 Node Details
+                </div>
+                <div id="graph-detail-content" style="font-size:0.82rem; color:var(--text-muted);">
+                  <div style="text-align:center; padding:30px 10px;">
+                    <div style="font-size:2rem; margin-bottom:8px;">🕸️</div>
+                    <div style="font-weight:700; color:var(--text-secondary);">Click a node to explore its<br>related safety entities and records.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Relationship Table: Precursor → Barrier (full list) -->
+            <div class="panel-card" style="margin-top:20px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-primary);">📋 All Precursor Family Relationships (from Dataset)</h3>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Sorted by report volume · Click row to explore in graph</div>
+              </div>
+              <div id="graph-relationship-table" style="overflow-x:auto;"></div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- VIEW 7: SAFETY RECORDS (Live Dataset Explorer) -->
+        <section id="view-historical" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">📁 Safety Records Database</h2>
+            <div class="page-subtitle">Interactive Dataset Explorer querying all 3,000 synthetic safety reports from <code>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</code> in real-time.</div>
+          </div>
+
+          <!-- Dataset Provenance & Metadata Banner (Requirement 11) -->
+          <div class="dataset-indicator-banner" style="margin-bottom:18px;">
+            <div class="dataset-indicator-left">
+              <span class="dataset-indicator-badge">🔬 SYNTHETIC DATASET EXPLORER</span>
+              <div class="dataset-indicator-text">
+                <strong>SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</strong> (3,000 Synthetic Safety Reports · 31 Structured Columns)
+              </div>
+            </div>
+            <div class="dataset-indicator-meta">
+              <span>Path: <code>backend/data/SENTINEL_OIL_SYNTHETIC_DATASET_V1.xlsx</code></span>
+              <span>•</span>
+              <span style="color:#16a34a; font-weight:700;">✓ Live Backend API Grounding</span>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls Panel (Requirements 4, 5, 7) -->
+          <div class="panel-card" style="margin-bottom:20px; padding:18px 20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+              <div style="font-size:0.92rem; font-weight:800; color:var(--text-primary);">
+                🔍 Filter & Search 3,000 Safety Records
+              </div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <label for="dataset-page-size-select" style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Rows per page:</label>
+                <select id="dataset-page-size-select" class="form-control" style="width:90px; padding:4px 8px; font-size:0.8rem;" onchange="OIL_APP.changeDatasetPageSize(this.value)">
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+                <button class="btn-secondary" style="font-size:0.76rem; padding:5px 12px;" onclick="OIL_APP.resetDatasetFilters()">Reset Filters</button>
+              </div>
+            </div>
+
+            <!-- Search Bar Row -->
+            <div style="margin-bottom:14px;">
+              <div style="position:relative; display:flex; gap:10px;">
+                <input type="text" id="dataset-search-input" class="form-control" placeholder="Search across report ID, summary, description, location, department, barrier, energy..." style="padding-left:14px; font-size:0.88rem;">
+                <button class="btn-primary" style="width:auto; padding:10px 24px; white-space:nowrap;" onclick="OIL_APP.searchDatasetRecords()">Search</button>
+              </div>
+            </div>
+
+            <!-- Filter Dropdowns Grid (8 Filters) -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px;">
+              <!-- 1. SIF Precursor -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">SIF Precursor</label>
+                <select id="dataset-sif-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All SIF Classes</option>
+                  <option value="YES">SIF Precursor (YES)</option>
+                  <option value="REVIEW">Review Required (REVIEW)</option>
+                  <option value="NO">Non-SIF / Safe (NO)</option>
+                </select>
+              </div>
+
+              <!-- 2. Incident Type -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Incident Type</label>
+                <select id="dataset-incident-type-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Incident Types</option>
+                  <option value="Near Miss">Near Miss</option>
+                  <option value="Unsafe Act">Unsafe Act</option>
+                  <option value="Unsafe Condition">Unsafe Condition</option>
+                </select>
+              </div>
+
+              <!-- 3. Severity -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Severity</label>
+                <select id="dataset-severity-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Severities</option>
+                  <option value="HIGH">HIGH</option>
+                  <option value="MEDIUM">MEDIUM</option>
+                  <option value="LOW">LOW</option>
+                </select>
+              </div>
+
+              <!-- 4. Precursor Family (17 Families) -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Precursor Family</label>
+                <select id="dataset-family-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Precursor Families</option>
+                  <option value="LOTO / electrical isolation">LOTO / electrical isolation</option>
+                  <option value="Electrical panel arc risk">Electrical panel arc risk</option>
+                  <option value="Confined space atmosphere">Confined space atmosphere</option>
+                  <option value="Gas detection / toxic release">Gas detection / toxic release</option>
+                  <option value="Working at height">Working at height</option>
+                  <option value="Scaffold integrity">Scaffold integrity</option>
+                  <option value="Energy isolation / steam">Energy isolation / steam</option>
+                  <option value="Line of fire / stored pressure">Line of fire / stored pressure</option>
+                  <option value="Pressure hose failure">Pressure hose failure</option>
+                  <option value="Dropped object">Dropped object</option>
+                  <option value="Machine guarding">Machine guarding</option>
+                  <option value="Manual handling / pinch point">Manual handling / pinch point</option>
+                  <option value="Vehicle load security">Vehicle load security</option>
+                  <option value="Vehicle-pedestrian interaction">Vehicle-pedestrian interaction</option>
+                  <option value="Hot work / fire">Hot work / fire</option>
+                  <option value="Chemical exposure">Chemical exposure</option>
+                  <option value="Excavation / underground utility">Excavation / underground utility</option>
+                </select>
+              </div>
+
+              <!-- 5. Control Status -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Control Status</label>
+                <select id="dataset-control-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Control Statuses</option>
+                  <option value="Absent / Failed">Absent / Failed</option>
+                  <option value="Potential failure - verify">Potential failure - verify</option>
+                  <option value="Present/Verified">Present / Verified</option>
+                  <option value="Degraded">Degraded</option>
+                </select>
+              </div>
+
+              <!-- 6. Location -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Location</label>
+                <select id="dataset-location-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Locations</option>
+                  <option value="Tank Farm">Tank Farm</option>
+                  <option value="Boiler Area">Boiler Area</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Pump Station">Pump Station</option>
+                  <option value="Rig Floor">Rig Floor</option>
+                  <option value="Wellhead Area">Wellhead Area</option>
+                  <option value="Process Area">Process Area</option>
+                  <option value="Compressor Bay">Compressor Bay</option>
+                  <option value="Substation">Substation</option>
+                  <option value="Pipeline Corridor">Pipeline Corridor</option>
+                </select>
+              </div>
+
+              <!-- 7. Department -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">Department</label>
+                <select id="dataset-department-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All Departments</option>
+                  <option value="Mechanical">Mechanical</option>
+                  <option value="Electrical">Electrical</option>
+                  <option value="Instrumentation">Instrumentation</option>
+                  <option value="Operations">Operations</option>
+                  <option value="Drilling">Drilling</option>
+                  <option value="Civil">Civil</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="Inspection">Inspection</option>
+                  <option value="EHS">EHS</option>
+                  <option value="Production">Production</option>
+                </select>
+              </div>
+
+              <!-- 8. LSR Theme -->
+              <div>
+                <label class="form-label" style="font-size:0.72rem; margin-bottom:4px;">LSR Theme</label>
+                <select id="dataset-lsr-filter" class="form-control" style="font-size:0.78rem; padding:6px 10px;" onchange="OIL_APP.searchDatasetRecords()">
+                  <option value="">All LSR Themes</option>
+                  <option value="Electrical isolation">Electrical isolation</option>
+                  <option value="Confined-space control">Confined-space control</option>
+                  <option value="Fall protection">Fall protection</option>
+                  <option value="Dropped-object prevention">Dropped-object prevention</option>
+                  <option value="Gas detection">Gas detection</option>
+                  <option value="Hot-work control">Hot-work control</option>
+                  <option value="Load securing">Load securing</option>
+                  <option value="Machine guarding">Machine guarding</option>
+                  <option value="Pressure isolation">Pressure isolation</option>
+                  <option value="Steam isolation">Steam isolation</option>
+                  <option value="Scaffold inspection">Scaffold inspection</option>
+                  <option value="Vehicle-pedestrian segregation">Vehicle-pedestrian segregation</option>
+                  <option value="Chemical containment">Chemical containment</option>
+                  <option value="Excavation permit">Excavation permit</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Active Filters & Result Meta Summary -->
+            <div style="margin-top:12px; padding-top:10px; border-top:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <div id="dataset-result-meta" style="font-size:0.8rem; color:var(--text-secondary); font-weight:700;">
+                Loading 3,000 dataset records...
+              </div>
+              <div id="dataset-active-filter-chips" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+            </div>
+          </div>
+
+          <!-- Dataset Records Table Container (Requirement 3, 12) -->
+          <div class="panel-card" style="padding:0; overflow:hidden;">
+            <!-- Loading State Panel (Requirement 12) -->
+            <div id="dataset-records-loading" style="text-align:center; padding:48px 24px; display:none;">
+              <div class="spinner-icon"></div>
+              <h4 style="font-size:1rem; font-weight:800; color:var(--text-primary); margin-top:8px;">Querying Safety Records Dataset...</h4>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-top:4px;">Filtering records via <code>/api/dataset/reports</code></p>
+            </div>
+
+            <!-- API Error State Panel (Requirement 12) -->
+            <div id="dataset-records-error" class="error-state-box" style="display:none; margin:24px;">
+              <h4 style="font-size:1.05rem; font-weight:800;">Error Loading Safety Records</h4>
+              <p id="dataset-error-message" style="font-size:0.85rem; margin:8px 0 16px 0;">Failed to fetch reports from backend API.</p>
+              <button class="btn-secondary" onclick="OIL_APP.loadDatasetPage()">↻ Retry Connection</button>
+            </div>
+
+            <!-- Empty State Panel (Requirement 12) -->
+            <div id="dataset-records-empty" style="text-align:center; padding:48px 24px; display:none;">
+              <div style="font-size:2.5rem; margin-bottom:8px;">🔍</div>
+              <h4 style="font-size:1.05rem; font-weight:800; color:var(--text-primary);">No Safety Records Match Your Filters</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin:6px 0 16px 0;">Try adjusting your keyword search or resetting the active filters.</p>
+              <button class="btn-secondary" onclick="OIL_APP.resetDatasetFilters()">Reset All Filters</button>
+            </div>
+
+            <!-- Responsive Table (Requirement 3) -->
+            <div id="dataset-table-wrapper" style="overflow-x:auto;">
+              <table class="data-table" id="dataset-records-table">
+                <thead>
+                  <tr>
+                    <th style="white-space:nowrap;">Report ID</th>
+                    <th style="white-space:nowrap;">Date</th>
+                    <th style="white-space:nowrap;">Incident Type</th>
+                    <th style="white-space:nowrap;">Location</th>
+                    <th style="white-space:nowrap;">Department</th>
+                    <th style="min-width:240px;">Activity / Summary</th>
+                    <th style="white-space:nowrap;">SIF Precursor</th>
+                    <th style="white-space:nowrap;">Precursor Family</th>
+                    <th style="white-space:nowrap;">Severity</th>
+                    <th style="white-space:nowrap;">Control Status</th>
+                    <th style="white-space:nowrap;">Barrier Failure</th>
+                    <th style="white-space:nowrap;">LSR Theme</th>
+                    <th style="text-align:center; white-space:nowrap;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="historical-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Pagination Bar (Requirements 6, 7) -->
+            <div id="dataset-pagination-controls" style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; background:var(--bg-sidebar); border-top:1px solid var(--border-color); flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button class="btn-secondary" id="dataset-first-btn" onclick="OIL_APP.navigateDatasetPage('first')" style="padding:6px 12px; font-size:0.78rem;" disabled>« First</button>
+                <button class="btn-secondary" id="dataset-prev-btn" onclick="OIL_APP.navigateDatasetPage(-1)" style="padding:6px 12px; font-size:0.78rem;" disabled>‹ Previous</button>
+              </div>
+
+              <div id="dataset-page-info" style="font-size:0.84rem; color:var(--text-primary); font-weight:800;">
+                Page 1 of 60
+              </div>
+
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button class="btn-secondary" id="dataset-next-btn" onclick="OIL_APP.navigateDatasetPage(1)" style="padding:6px 12px; font-size:0.78rem;">Next ›</button>
+                <button class="btn-secondary" id="dataset-last-btn" onclick="OIL_APP.navigateDatasetPage('last')" style="padding:6px 12px; font-size:0.78rem;">Last »</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 8: CORRECTIVE ACTION CENTER -->
+        <section id="view-actions" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">🛠️ Corrective Action Center</h2>
+            <div class="page-subtitle">Track interventions linked directly to identified precursor conditions and control failures.</div>
+          </div>
+          <div id="actions-list-container"></div>
+        </section>
+
+        <!-- VIEW 9: AUDIT & GOVERNANCE -->
+        <section id="view-settings" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">🔒 Audit & Governance</h2>
+            <div class="page-subtitle">Decision support audit log, model provenance, and human-in-the-loop validation history.</div>
+          </div>
+          <div class="panel-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <div>
+                <div class="form-label">Active Model Pipeline:</div>
+                <p style="font-size:0.88rem; color:#0f172a; font-weight:800;">SIF-Sentinel-Pipeline-v2.4 (Transformer & Rule Decision Engine)</p>
+              </div>
+              <button class="btn-secondary" onclick="alert('Demo environment state reset.')">Reset Demo State</button>
+            </div>
+
+            <div class="form-label">System Decision Support Governance:</div>
+            <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7;">
+              “AI-assisted safety intelligence. Final operational safety decisions remain with qualified EHS personnel.”
+            </p>
+          </div>
+        </section>
+
+        <!-- VIEW 10: TARGET ARCHITECTURE -->
+        <section id="view-architecture" class="view-page">
+          <div class="page-header">
+            <h2 class="page-title">⚙️ Target System Architecture</h2>
+            <div class="page-subtitle">Layered intelligence pipeline for enterprise SIF precursor processing.</div>
+          </div>
+          <div class="panel-card" style="line-height:1.8;">
+            <pre style="background:#f8fafc; border:1px solid #0f172a; padding:20px; border-radius:6px; color:#0f172a; font-family:monospace; font-size:0.85rem; overflow-x:auto;">
+INPUT LAYER
+Safety Reports & Field Observations (Text / PDF / API)
+      ↓
+PROCESSING LAYER
+Text Preprocessing → spaCy NER → Transformers Event Extraction
+      ↓
+INTELLIGENCE LAYER
+Precursor Taxonomy → SIF Risk Priority Model → FAISS Cosine Similarity
+      ↓
+KNOWLEDGE LAYER
+Neo4j Safety Graph → Multi-Report Temporal Aggregator
+      ↓
+DECISION SUPPORT LAYER
+Evidence Highlighting → Traceable Corrective Actions → Analyst Sign-off
+            </pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Side Drawer Component -->
+    <div id="side-drawer" class="side-drawer">
+      <span id="drawer-close" class="drawer-close">&times;</span>
+      <div id="drawer-content"></div>
+    </div>
+
+    <!-- Floating "Ask AI" Assistant Launcher Button -->
+    <button id="ai-toggle-btn" class="ai-toggle-btn">💬 Ask AI Assistant</button>
+
+    <!-- Floating "Ask AI" Assistant Slideout Panel (Hidden by default) -->
+    <div id="ask-ai-panel" class="ask-ai-panel">
+      <div class="ai-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span>💬 Ask AI Assistant</span>
+          <span style="font-size:0.7rem; color:var(--text-muted); font-weight:600;">(Grounded)</span>
+        </div>
+        <span id="ai-panel-close" class="modal-close" style="position:static; font-size:1.3rem; line-height:1; cursor:pointer;" title="Minimize">&times;</span>
+      </div>
+      <div id="ai-messages" class="ai-messages">
+        <div class="msg-ai">Hello Safety Analyst. Ask me anything about the analyzed report, failed controls, or historical similarity.</div>
+      </div>
+      <div class="ai-input-row">
+        <input type="text" id="ai-query-input" placeholder="e.g. What makes this a SIF precursor?">
+        <button class="btn-secondary" id="ai-send-btn" style="margin-left:6px;">Send</button>
+      </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer style="background:var(--bg-sidebar); border-top:1px solid var(--border-color); text-align:center; padding:12px; font-size:0.75rem; color:var(--text-muted);">
+      <strong>SIF Sentinel</strong> — Serious Injury & Fatality Precursor Intelligence Platform. Demo Environment / Illustrative Safety Records.
+    </footer>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
